@@ -1,9 +1,6 @@
 <h1 align="center">CoreBiz</h1>
 <p align="center">Projeto desenvolvido por Reginaldo Oliveira</p>
 
-<img src="./tela1.png">
-
-
 📖 - Projeto para o Desafio 2 do #hiringcoders, com o intúito de desenvolver um sistema de E-commerce, que guarde dados de clientes, endereços, produtos, devidamente
 estruturados no localstorage. Para este projeto, foi desenvolvido uma loja da Core Biz que possui sistema de carrinho com os produtos que estão cadastrados na Api.
 
