@@ -25,7 +25,7 @@ git clone https://github.com/Reginaldo007oliveira/webdevcor21.git
 <h2>Para iniciar a aplicação:</h2>
 
 - Instale as dependencias do projeto com o comando npm install
-  Para rodar o projeto digite npn run start
+- Para rodar o projeto digite npn run start
 
 
 <h2>📝 Licença</h2>
