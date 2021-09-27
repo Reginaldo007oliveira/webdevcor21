@@ -31,19 +31,16 @@ interface ICartContext {
 }
 
 const CartContext = createContext<ICartContext | null>(null)
-
 const CartProvider: React.FC = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
     async function loadProducts(): Promise<void> {
       const storagedProducts = localStorage.getItem('@corebiz:products')
-
       if (storagedProducts) {
         setProducts(JSON.parse(storagedProducts))
       }
     }
-
     loadProducts()
   }, [])
 
@@ -70,17 +67,14 @@ const CartProvider: React.FC = ({ children }) => {
     async id => {
       const arrProducts = products
       const findProduct = arrProducts.find(p => p.productId === id)
-
       if (findProduct) {
         findProduct.quantity += 1
         setProducts([...arrProducts])
       }
-
       localStorage.setItem('@corebiz:products', JSON.stringify(products))
     },
     [products]
   )
-
   const decrement = useCallback(
     async id => {
       const arrProducts = products
@@ -94,14 +88,11 @@ const CartProvider: React.FC = ({ children }) => {
           findProduct.quantity -= 1
         }
       }
-
-      setProducts([...arrProducts])
-
+    setProducts([...arrProducts])
       localStorage.setItem('@corebiz:products', JSON.stringify(products))
     },
     [products]
   )
-
   const removeFromCart = useCallback(
     async id => {
       const productsArray = products
@@ -120,18 +111,13 @@ const CartProvider: React.FC = ({ children }) => {
     () => ({ addToCart, increment, decrement, products, removeFromCart }),
     [products, addToCart, increment, decrement, removeFromCart]
   )
-
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
-
 function useCart(): ICartContext {
   const context = useContext(CartContext)
-
   if (!context) {
     throw new Error('useCart must be used within a CartProvider')
   }
-
   return context
 }
-
 export { CartProvider, useCart }
